@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minoculars</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        form div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 10px;
+        }
+
+        .counter-btn {
+            height: 100px;
+            width: 30%;
+            background-color: orange;
+            border-radius: 10px;
+            border-style: none;
+            box-shadow: 1px 1px 2px 1px gray;
+        }
+
+        .fail-btn {
+            height: 100px;
+            width: 30%;
+            background-color: #ea4444;
+            border-radius: 10px;
+            border-style: none;
+            box-shadow: 1px 1px 2px 1px gray;
+        }
+
+        button:active {
+            filter: brightness(0.95);
+            animation: clickAnimation 0.5s;
+        }
+
+        @keyframes clickAnimation {
+            0% {transform: scale(1);}
+            50% {transform: scale(0.9);}
+            100% {transform: scale(1);}
+        }
+
+        .counter {
+            -webkit-user-select: none;
+            user-select: none;
+            height: 50px;
+            width: 10%;
+            border-radius: 10px;
+            /*box-shadow: inset 0 0 2px 1px gray;*/
+            border-style: none;
+            padding-left: 10px;
+        }
+
+        .counter::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        .container {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 25px;
+          width: 25px;
+          background-color: #ccc;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+          background-color: #aaa;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+          background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+          left: 9px;
+          top: 5px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        #submit {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<form action="/" method="POST">
+    <div style="width: 100%">
+        <label for="team-num">队伍</label>
+        <select id="team-num" name="team_num"></select>
+    </div>
+    <div>
+        <label for="game-id">比赛编号</label>
+        <input type="number" id="game-id" name="game_id">
+    </div>
+    <div>
+        <label for="start-pos">起始位置</label>
+        <select id="start-pos" name="start_pos">
+            <option value="blue_1">蓝左</option>
+            <option value="blue_2">蓝中</option>
+            <option value="blue_3">蓝右</option>
+            <option value="red_1">红左</option>
+            <option value="red_2">红中</option>
+            <option value="red_3">红右</option>
+        </select>
+    </div>
+    <label class="container">离开tarmac?
+        <input type="checkbox" name="taxi_tarmac">
+        <span class="checkmark"></span>
+    </label>
+    <div style="justify-content: space-around">
+        <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">自动射球</button>
+        <input type=number id="auto-shoots" class="counter" name="auto_shoots" value=0 ondblclick="this.value--" readonly>
+        <span>/</span>
+        <input type="number" id="auto-shoots-fail" class="counter" name="auto_shoots_fail" value=0 style="color: red" ondblclick="this.value--" readonly>
+        <button type="button" class="fail-btn" onclick="this.previousElementSibling.value++">✖️</button>
+    </div>
+    <div style="justify-content: space-around">
+        <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">自动投球</button>
+        <input type=number id="auto-shoots" class="counter" name="auto_shoots" value=0 ondblclick="this.value--" readonly>
+    </div>
+    <div style="justify-content: space-around">
+        <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">手动射球</button>
+        <input type=number id="teleop-shoots" class="counter" name="teleop_shoots" value=0 ondblclick="this.value--" readonly>
+        <span>/</span>
+        <input type="number" id="teleop-shoots-fail" class="counter" name="teleop_shoots_fail" value=0 style="color: red" ondblclick="this.value--" readonly>
+        <button type="button" class="fail-btn" onclick="this.previousElementSibling.value++">✖️</button>
+    </div>
+
+    <div style="flex-direction: column;">
+        <label>爬升等级
+            <select id="climb" name="climb_score">
+                <option value=0>无</option>
+                <option value=4>Low</option>
+                <option value=6>Middle</option>
+                <option value=10>High</option>
+                <option value=15>Traversal</option>
+            </select>
+        </label>
+
+        <label class="container">失败?
+            <input type="checkbox" name="climb_fail">
+            <span class="checkmark"></span>
+        </label>
+
+        <label>爬升位置
+            <select id="climb-pos" name="climb_pos">
+                <option value="none">无</option>
+                <option value="left">左</option>
+                <option value="middle">中</option>
+                <option value="right">右</option>
+            </select>
+        </label>
+
+    </div>
+    <div style="justify-content: center">
+        <button type="button" class="counter-btn" onclick="this.nextElementSibling.value = +this.nextElementSibling.value+4">犯规</button>
+        <input type=number id="foul" class="counter" name="foul" style="margin-left: 30px;" value=0 ondblclick="this.value= +this.value-4" readonly>
+    </div>
+
+    <textarea placeholder="备注" name="comments"></textarea>
+    <input type="submit" id="submit" value="提交">
+</form>
+</body>
+
+<script>
+    const teamOptions = document.getElementById("team-num").options
+    const teams = ["", 5165, 5449, 5515, 5737, 5823, 6304, 6353, 6394, 6399, 6489, 6766, 6907, 6940, 6941,
+        6970, 6986, 7047, 7280, 7522, 7529, 8011, 8015, 8214, 8810, 8811, 8813, 8814, 9985, 9986]
+    teams.forEach(team =>
+        teamOptions.add(
+            new Option(team, team)
+        )
+    )
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minoculars</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+</head>
+<body>
+  <h1>Minoculars</h1>
+
+  <!-- Team Number Input -->
+  <div class="team-number">
+    <label for="teamNumber">Team Number:</label>
+    <input type="text" id="teamNumber" />
+  </div>
+  
+  <!-- Auto Stage -->
+  <div class="stage">
+    <h2>Auto Stage</h2>
+    <label for="autoBallsThrown">Balls Thrown:</label>
+    <input type="number" id="autoBallsThrown" />
+    <label for="autoGoals">Goals:</label>
+    <input type="number" id="autoGoals" />
+    <p id="autoScore"></p>
+  </div>
+  
+  <!-- Manual Stage -->
+  <div class="stage">
+    <h2>Manual Stage</h2>
+    <label for="manualBallsThrown">Balls Thrown:</label>
+    <input type="number" id="manualBallsThrown" />
+    <label for="manualGoals">Goals:</label>
+    <input type="number" id="manualGoals" />
+    <p id="manualScore"></p>
+  </div>
+
+  <!-- Climbing Level -->
+  <div class="climbing-level">
+    <h2>Climbing Level</h2>
+    <ul>
+      <li><span data-level="1">Level 1</span></li>
+      <li><span data-level="2">Level 2</span></li>
+      <li><span data-level="3">Level 3</span></li>
+      <li><span data-level="4">Level 4</span></li>
+    </ul>
+    <p id="selectedLevel"></p>
+  </div>
+
+  <!-- Save Data Button -->
+  <button id="saveData" class="save-button" onclick="submit()">Save Data</button>
+
+  <!-- Modal Window -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="correct-symbol">&#10004;</span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
