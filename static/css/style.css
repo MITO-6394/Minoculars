@@ -22,7 +22,7 @@ form {
 
 form label {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     font-size: 60px;
 }
 
@@ -83,8 +83,8 @@ button:active {
     -webkit-user-select: none;
     user-select: none;
     height: 200px;
-    width: 10%;
-    font-size: 60px;
+    width: 12%;
+    font-size: 50px;
     border-radius: 10px;
     /*box-shadow: inset 0 0 2px 1px gray;*/
     border-style: none;
@@ -110,13 +110,13 @@ button:active {
 }
 
 #climb-wrapper label {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .checkbox-container {
     display: block;
     position: relative;
-    padding-left: 70px;
+    padding-left: 140px;
     margin-bottom: 12px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -138,9 +138,11 @@ button:active {
 .checkmark {
     position: absolute;
     top: 0;
+    bottom: 0;
+    margin: auto;
     left: 0;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     background-color: #ccc;
 }
 
@@ -168,10 +170,10 @@ button:active {
 
 /* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
-    left: 18px;
-    top: 10px;
-    width: 10px;
-    height: 20px;
+    left: 36px;
+    top: 20px;
+    width: 20px;
+    height: 40px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
