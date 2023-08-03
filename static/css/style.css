@@ -23,8 +23,11 @@ form {
 form label {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 60px;
+}
 
+label input,select {
+    font-size: 80px;
 }
 
 form div {
@@ -36,7 +39,8 @@ form div {
 }
 
 .counter-btn {
-    height: 200px;
+    font-size: 60px;
+    height: 300px;
     width: 30%;
     background-color: orange;
     border-radius: 10px;
@@ -45,7 +49,8 @@ form div {
 }
 
 .fail-btn {
-    height: 200px;
+    font-size: 60px;
+    height: 300px;
     width: 30%;
     background-color: #ea4444;
     border-radius: 10px;
@@ -77,9 +82,9 @@ button:active {
 .counter {
     -webkit-user-select: none;
     user-select: none;
-    height: 100px;
+    height: 200px;
     width: 10%;
-    font-size: 40px;
+    font-size: 60px;
     border-radius: 10px;
     /*box-shadow: inset 0 0 2px 1px gray;*/
     border-style: none;
@@ -178,9 +183,11 @@ button:active {
     width: 90%;
     height: 300px;
     border-radius: 10px;
+    font-size: 60px;
 }
 
 #submit {
+    font-size: 80px;
     border-style: none;
     margin-top: 30px;
     height: 200px;
