@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no,  target-densitydpi=device-dpi" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no,  target-densitydpi=device-dpi"/>
     <title>Minoculars</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="../static/css/style.css">
@@ -126,5 +127,20 @@
             return false;
         }
     }
+
+    function preventZoom(e) {
+        let t2 = e.timeStamp;
+        let t1 = e.currentTarget.dataset.lastTouch || t2;
+        let dt = t2 - t1;
+        let fingers = e.touches.length;
+        e.currentTarget.dataset.lastTouch = t2;
+
+        if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+
+        e.preventDefault();
+        e.target.click();
+    }
+
+    document.getElementsByTagName("button").forEach((e) => e.addEventListener("touchstart", preventZoom))
 </script>
 </html>
