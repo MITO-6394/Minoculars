@@ -36,15 +36,15 @@
     </label>
     <div class="counter-wrapper">
         <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">自动upper</button>
-        <input type=number id="auto-upper" class="counter" name="auto_upper" value=0 ondblclick="this.value--" readonly>
+        <input type=number id="auto-upper" class="counter" name="auto_upper" value=0 onclick="this.value--" readonly>
         <span>/</span>
-        <input type="number" class="counter fail-counter" name="auto_upper_fail" value=0 ondblclick="this.value--"
+        <input type="number" class="counter fail-counter" name="auto_upper_fail" value=0 onclick="this.value--"
                readonly>
         <button type="button" class="fail-btn" onclick="this.previousElementSibling.value++">✖️</button>
     </div>
     <div class="counter-wrapper">
         <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">自动lower</button>
-        <input type=number id="auto-lower" class="counter" name="auto_lower" value=0 ondblclick="this.value--" readonly>
+        <input type=number id="auto-lower" class="counter" name="auto_lower" value=0 onclick="this.value--" readonly>
         <div style="width: 50%"></div>
     </div>
 
@@ -52,16 +52,16 @@
 
     <div class="counter-wrapper">
         <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">手动upper</button>
-        <input type=number id="teleop-upper" class="counter" name="teleop_upper" value=0 ondblclick="this.value--"
+        <input type=number id="teleop-upper" class="counter" name="teleop_upper" value=0 onclick="this.value--"
                readonly>
         <span>/</span>
         <input type="number" id="teleop-upper-fail" class="counter fail-counter" name="teleop_upper_fail" value=0
-               ondblclick="this.value--" readonly>
+               onclick="this.value--" readonly>
         <button type="button" class="fail-btn" onclick="this.previousElementSibling.value++">✖️</button>
     </div>
     <div class="counter-wrapper">
         <button type="button" class="counter-btn" onclick="this.nextElementSibling.value++">手动lower</button>
-        <input type=number id="teleop-lower" class="counter" name="auto_shoots" value=0 ondblclick="this.value--"
+        <input type=number id="teleop-lower" class="counter" name="auto_shoots" value=0 onclick="this.value--"
                readonly>
         <div style="width: 50%"></div>
     </div>
@@ -101,7 +101,7 @@
                 onclick="this.nextElementSibling.value = +this.nextElementSibling.value+4">犯规
         </button>
         <input type=number id="foul" class="counter" name="foul" style="margin-left: 30px;" value=0
-               ondblclick="this.value= +this.value-4" readonly>
+               onclick="this.value= +this.value-4" readonly>
     </div>
 
     <textarea placeholder="备注" id="comments" name="comments"></textarea>
