@@ -141,6 +141,7 @@
         e.target.click();
     }
 
-    document.getElementsByTagName("button").forEach((e) => e.addEventListener("touchstart", preventZoom))
+    Array.from(document.getElementsByTagName("button"))
+        .forEach((e) => e.addEventListener("touchstart", preventZoom))
 </script>
 </html>
