@@ -23,6 +23,8 @@ form {
 form label {
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 40px;
+
 }
 
 form div {
@@ -34,7 +36,7 @@ form div {
 }
 
 .counter-btn {
-    height: 100px;
+    height: 200px;
     width: 30%;
     background-color: orange;
     border-radius: 10px;
@@ -43,7 +45,7 @@ form div {
 }
 
 .fail-btn {
-    height: 100px;
+    height: 200px;
     width: 30%;
     background-color: #ea4444;
     border-radius: 10px;
@@ -75,8 +77,9 @@ button:active {
 .counter {
     -webkit-user-select: none;
     user-select: none;
-    height: 50px;
+    height: 100px;
     width: 10%;
+    font-size: 40px;
     border-radius: 10px;
     /*box-shadow: inset 0 0 2px 1px gray;*/
     border-style: none;
@@ -108,7 +111,7 @@ button:active {
 .checkbox-container {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 70px;
     margin-bottom: 12px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -131,8 +134,8 @@ button:active {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 50px;
+    width: 50px;
     background-color: #ccc;
 }
 
@@ -160,10 +163,10 @@ button:active {
 
 /* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 18px;
+    top: 10px;
+    width: 10px;
+    height: 20px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
@@ -172,15 +175,16 @@ button:active {
 }
 
 #comments {
-    height: 150px;
+    width: 90%;
+    height: 300px;
     border-radius: 10px;
 }
 
 #submit {
     border-style: none;
     margin-top: 30px;
-    height: 100px;
-    width: 200px;
+    height: 200px;
+    width: 500px;
     border-radius: 10px;
     background-color: #2196F3;
 }
